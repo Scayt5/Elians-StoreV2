@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  web:
+    container_name: elians-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+      - db
+    environment:
+      - TZ=America/Lima
+    restart: always
+    # --- PROTECCIÓN CONTRA LOGS INFINITOS (WEB) ---
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"   # El archivo no pasará de 10 MB
+        max-file: "3"     # Solo guarda los últimos 3 archivos (Máx 30MB total)
+
+  db:
+    container_name: elians-db
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: elians_db
+      TZ: America/Lima
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./importar.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: always
+    command: --default-authentication-plugin=mysql_native_password
+    # --- PROTECCIÓN CONTRA LOGS INFINITOS (BASE DE DATOS) ---
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+volumes:
+  db_data:

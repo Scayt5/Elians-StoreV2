@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/chillerlan/php-qrcode" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/chillerlan/php-settings-container" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/dompdf/dompdf" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/dompdf/php-font-lib" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/dompdf/php-svg-lib" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/masterminds/html5" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/sabberworm/php-css-parser" />
+      <excludeFolder url="file://$MODULE_DIR$/src/vendor/thecodingmachine/safe" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
